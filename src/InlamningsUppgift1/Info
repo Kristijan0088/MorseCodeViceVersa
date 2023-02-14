@@ -1,0 +1,42 @@
+/*         morse to english
+for(int i = 0; i < array.length; i++) {
+    String[] letters = array[i].split(" ");
+    for (int j = 0; j < letters.length; j++) {
+        String letter = letters[j];
+        englishResult += morseLetters.get(letter);
+    }
+    if (i != array.length - 1) {
+        englishResult += " ";
+    }
+}
+
+ */
+
+/*
+ String[] array = morseToEnglish.split("[ \n]+");
+                    String englishResult = " ";
+                    morseLetters.put(" / ", ' ');
+                    for (int i = 0; i < array.length; i++) {
+                        String letter = array[i];
+                        englishResult += morseLetters.get(letter);
+                        if (i != array.length - 1) {
+                            englishResult += " ";
+                        }
+                    }
+ */
+  /*
+        for (int i = 0; i < morseArray.length;i++){
+           String letter = morseArray[i];
+           english += morseLetters.get(letter);
+           //english = letter != null ? letter : "";
+           if (i != morseArray.length - 1) {
+              english +=  " ";
+           }
+        }*/
+//var morseArray = morse.split(" ");
+//var englishResult = " ";
+                    /*
+                    for (var morseLetter : morseArray) {
+                      var letter = morseLetters.get(morseLetter);
+                    englishResult += letter != null ? letter : "";
+                    */
