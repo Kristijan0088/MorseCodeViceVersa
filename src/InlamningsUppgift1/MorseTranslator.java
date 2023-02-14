@@ -10,7 +10,6 @@ public class MorseTranslator {
 
         int menu = 0;
 
-
         boolean notDone = true;
 
         System.out.println("\n Welcome to Morse code translator to english and vice versa");
