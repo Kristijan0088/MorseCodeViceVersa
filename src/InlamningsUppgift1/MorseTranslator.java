@@ -8,11 +8,12 @@ public class MorseTranslator {
 
         Scanner sc = new Scanner(System.in);
 
-        int menu = 0;
+        String menu = " ";
 
         boolean notDone = true;
 
         System.out.println("\n Welcome to Morse code translator to english and vice versa");
+        System.out.println("\n Entered text-words both in english and morse are separated with /, and morse letters are presented with . and - ");
 
         while (notDone) {
 
@@ -22,7 +23,7 @@ public class MorseTranslator {
             System.out.println(" ");
 
             try {
-                menu = Integer.parseInt(sc.nextLine());
+                menu = sc.nextLine();
             } catch (NumberFormatException e) {
                 System.out.println("\n Enter only numbers 1 from 3. " + e.getMessage());
             } catch (Exception e) {
@@ -30,7 +31,7 @@ public class MorseTranslator {
             }
 
             switch (menu) {
-                case 1:
+                case "1":
                     System.out.println("\f Enter some english text: ");
                     String english = sc.nextLine();
                     Translator translator = new Translator();
@@ -40,7 +41,7 @@ public class MorseTranslator {
 
                     //notDone = true;
                     break;
-                case 2:
+                case "2":
                     System.out.println("\f Enter some Morse code: ");
                     String morse = sc.nextLine();//gamal namn morseToEnglish
                     Translator translatorII = new Translator();
@@ -50,7 +51,7 @@ public class MorseTranslator {
                     //notDone = false;
                     break;
 
-                case 3:
+                case "3":
                     System.out.println("\n You have exited the program successfully.");
                     notDone = false;
                     break;

@@ -1,5 +1,6 @@
 package InlamningsUppgift1;
 
+import java.sql.SQLOutput;
 import java.util.HashMap;
 
 public class Translator {
@@ -101,17 +102,35 @@ public class Translator {
     }
 
     public void engToMorse(String inputEnglish) {
-        char[] engArray = inputEnglish.toUpperCase().toCharArray();
-                     morse = "";
-                    for (int i = 0; i < engArray.length; i++) {
-                        char ch = engArray[i];
-                        morse += engLetters.get(ch);
-                        //Space mellan morse code när skrivs ut***
-                       if (i != engArray.length - 1) {
-                            morse += " ";
-                        }
-
+        try {
+            if (inputEnglish.isEmpty()) {
+                System.out.println("String was empty");
+                System.out.println("");
+            } else if (inputEnglish.matches(".*[äåöÄÅÖ><].*")) {
+                System.out.println("Input contains non-English letters!!");
+                System.out.println(" ");
+            } else {
+                char[] engArray = inputEnglish.toUpperCase().toCharArray();
+                morse = "";
+                for (int i = 0; i < engArray.length; i++) {
+                    char ch = engArray[i];
+                    morse += engLetters.get(ch);
+                    //Space mellan morse code när skrivs ut***
+                    if (i != engArray.length - 1) {
+                        morse += " ";
+                    } else {
+                        System.out.println("Is not in the library! " + ch);
                     }
+
+                }
+            }
+
+
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+
+        }
+
     }
 
     public String getMorseResultat() {
@@ -119,13 +138,12 @@ public class Translator {
     }
 
     public void morseToEnglish(String inputMorse) {
-        String [] morseArray = inputMorse.split(" ");
-         english = "";
+        String[] morseArray = inputMorse.split(" ");
+        english = "";
         for (String morseLetter : morseArray) {
             Character letter = morseLetters.get(morseLetter);
             english += letter != null ? letter : " / "; //ta bort null för mellanslag och tilläger mellanslag
         }
-
 
 
     }
@@ -135,3 +153,8 @@ public class Translator {
     }
 }
 
+/*
+The .* at the beginning and end of the regular expression means "match any character, zero or more times",
+so this will match any string that contains any of the non-English characters,
+regardless of where they occur in the string.
+ */
